@@ -14,6 +14,7 @@ public class HellDog extends Monster{
 	
 	Dropable availableDrop[] = {new LongBow(), new AngelicStaff(), new SteelSword()};
 	
+	private static final int MAX_MOVE_LENGTH = 6;
 	public int attack = 12;
 	public int health = 70;
 	public String name;
@@ -47,7 +48,11 @@ public class HellDog extends Monster{
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
-		return availableDrop[rand.nextInt(2)];
+		return availableDrop[rand.nextInt(3)];
+	}
+
+	public static int getMaxMoveLength() {
+		return MAX_MOVE_LENGTH;
 	}
 	
 	

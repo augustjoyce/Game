@@ -4,7 +4,6 @@ import java.util.Random;
 
 import com.game.api.model.Dropable;
 import com.game.api.model.character.AttackType;
-import com.game.api.model.character.Character;
 import com.game.api.model.character.Monster;
 import com.game.api.model.character.MovementType;
 import com.game.impl.model.weapon.bow.DemonicBow;
@@ -16,7 +15,7 @@ public class Boss extends Monster {
 	Dropable[] availableDrop = {new DemonicSword(), new DemonicBow(), new DemonicStaff()};
 	
 	
-	
+	private static final int MAX_MOVE_LENGTH = 1;
 	String name;
 	public int attack = 20;
 	public int health = 300;
@@ -45,21 +44,16 @@ public class Boss extends Monster {
 		return MovementType.RUNNING;
 	}
 	
-	public boolean isDead(Character ch) {
-		if (health <= 0) {
-			
-			System.out.println(ch.getName() + " is dead");
-			
-					
-			return true;
-		} else
-			return false;
-	}
+	
 
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
-		return availableDrop[rand.nextInt(2)];
+		return availableDrop[rand.nextInt(3) ];
+	}
+
+	public static int getMaxMoveLength() {
+		return MAX_MOVE_LENGTH;
 	}
 
 }

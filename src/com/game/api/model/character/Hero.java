@@ -11,12 +11,17 @@ public abstract class Hero extends Character{
 		super(name);
 		
 	}
-
+	public void attack(Monster monster) {
+		monster.setHealth(monster.getHealth() - getAttack());
+		if(monster.isDead(monster)) {
+			if(monster.drop() instanceof Weapon) equipWeapon((Weapon) monster.drop());
+			else if(monster.drop() instanceof Armor) equipArmor((Armor) monster.drop());
+			
+		}
+	}
 	public abstract void equipWeapon(Weapon weapon);
 	
-	public void equipArmor(Armor armor){
-		setHealth(getHealth() + armor.getDefense());
-	};
+	public abstract void equipArmor(Armor armor);
 	
 	public boolean isHero(){
 		if (this instanceof Hero) {

@@ -14,9 +14,11 @@ public class Main {
 		while (!mage.isDead(mage) && !boss.isDead(boss)) {
 
 			System.out.println(boss.getHealth());
+			System.out.println(boss.isDead(boss));
 			System.out.println(mage.getHealth());
 			mage.attack(boss);
-			boss.attack(mage);
+			
+			
 		
 			
 			

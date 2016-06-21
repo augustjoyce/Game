@@ -13,7 +13,8 @@ import com.game.impl.model.weapon.sword.WoodenSword;
 public class Imp extends Monster{
 	
 	Dropable availableDrop[] = {new ShortBow(), new WoodenStaff(), new WoodenSword()};
-
+	
+	private static final int MAX_MOVE_LENGTH = 3;
 	public int attack = 2;
 	public int health = 20;
 	public String name;
@@ -48,7 +49,12 @@ public class Imp extends Monster{
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
-		return availableDrop[rand.nextInt(2)];
+		return availableDrop[rand.nextInt(3)];
+	}
+
+
+	public static int getMaxMoveLength() {
+		return MAX_MOVE_LENGTH;
 	}
 	
 	

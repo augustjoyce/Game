@@ -14,6 +14,7 @@ public class Gargoyle extends Monster{
 	
 	Dropable[] availableDrop = {new IronSword(), new CompositeBow(), new CommonStaff()};
 	
+	private static final int MAX_MOVE_LENGTH = 5;
 	public int attack = 5;
 	public int health = 20;
 	public String name;
@@ -46,7 +47,11 @@ public class Gargoyle extends Monster{
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
-		return availableDrop[rand.nextInt(2)];
+		return availableDrop[rand.nextInt(3)];
+	}
+
+	public static int getMaxMoveLength() {
+		return MAX_MOVE_LENGTH;
 	}
 	
 }

@@ -11,6 +11,7 @@ public abstract class Character{
 	private int attack;
 	private Point onPoint;
 	
+	
 	public abstract String getName();
 	
 	protected Character(String name) {
@@ -22,6 +23,7 @@ public abstract class Character{
 	public void attack(Character character) {
 		character.setHealth(character.getHealth() - getAttack());
 		if(character.isDead(character)) return;
+		
 	}
 
 	public void move(Point point) {

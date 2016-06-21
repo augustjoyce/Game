@@ -15,6 +15,7 @@ public class Troll extends Monster{
 	
 	Dropable availableDrop[] = {new DemonicBow(), new DemonicStaff(), new DemonicSword()};
 	
+	private static final int MAX_MOVE_LENGTH = 2;
 	public int attack = 15;
 	public int health = 100;
 	public String name;
@@ -47,7 +48,11 @@ public class Troll extends Monster{
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
-		return availableDrop[rand.nextInt(2)];
+		return availableDrop[rand.nextInt(3)];
+	}
+
+	public static int getMaxMoveLength() {
+		return MAX_MOVE_LENGTH;
 	}
 	
 }
