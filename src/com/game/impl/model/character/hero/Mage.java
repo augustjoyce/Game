@@ -48,16 +48,17 @@ public class Mage extends Hero {
 		if (weapon.getWeaponType() == WeaponType.STAFF && (getAttack() - INIT_ATTACK) < weapon.getAttack()) {
 
 			setAttack(INIT_ATTACK + weapon.getAttack());
-			System.out.println(getName() + " equips "+ weapon.getClass().getSimpleName());
+			System.out.println(getName() + " equips " + weapon.getClass().getSimpleName());
 		}
 
 	}
 
 	@Override
 	public void equipArmor(Armor armor) {
-		if (armor.getArmorType() == ArmorType.ROBE && (getHealth() - INIT_HEALTH) < armor.getDefense())
+		if (armor.getArmorType() == ArmorType.ROBE && (getHealth() - INIT_HEALTH) < armor.getDefense()) {
 			setHealth(getHealth() + armor.getDefense());
-
+			System.out.println(getName() + " equips " + armor.getClass().getSimpleName());
+		}
 	}
 
 	public static int getMaxMoveLength() {
