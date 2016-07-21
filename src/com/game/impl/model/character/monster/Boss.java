@@ -1,5 +1,6 @@
 package com.game.impl.model.character.monster;
 
+import java.awt.Point;
 import java.util.Random;
 
 import com.game.api.model.Dropable;
@@ -15,18 +16,20 @@ public class Boss extends Monster {
 	Dropable[] availableDrop = {new DemonicSword(), new DemonicBow(), new DemonicStaff()};
 	
 	
-	private static final int MAX_MOVE_LENGTH = 1;
+	public static final int MAX_MOVE_LENGTH = 1;
 	String name;
 	public int attack = 20;
 	public int health = 300;
+	public Point onPoint;
 	
 	public String getName(){
 		return name;
 	}
 	
-	public Boss(String name) {
-		super(name);
+	public Boss(String name, Point onPoint) {
+		super(name, onPoint);
 		this.name = name;
+		this.onPoint = onPoint;
 		System.out.println("Boss " + name + "(" + attack + "," + health + ") has entered the arena!");
 		setHealth(health);
 		setAttack(attack);
@@ -54,6 +57,18 @@ public class Boss extends Monster {
 
 	public static int getMaxMoveLength() {
 		return MAX_MOVE_LENGTH;
+	}
+
+	@Override
+	public Point getOnPoint() {
+
+		return onPoint;
+	
+	}
+
+	@Override
+	public void setOnPoint(Point onPoint) {
+		this.onPoint = onPoint;
 	}
 
 }

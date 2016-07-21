@@ -1,5 +1,7 @@
 package com.game.api.model.character;
 
+import java.awt.Point;
+
 import com.game.api.model.armor.Armor;
 import com.game.api.model.weapon.Weapon;
 
@@ -7,8 +9,8 @@ public abstract class Hero extends Character{
 	
 	
 	
-	protected Hero(String name) {
-		super(name);
+	protected Hero(String name, Point onPoint) {
+		super(name, onPoint);
 		
 	}
 	public void attack(Monster monster) {

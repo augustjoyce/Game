@@ -1,5 +1,6 @@
 package com.game.impl.model.character.monster;
 
+import java.awt.Point;
 import java.util.Random;
 
 import com.game.api.model.Dropable;
@@ -14,14 +15,17 @@ public class HellDog extends Monster{
 	
 	Dropable availableDrop[] = {new LongBow(), new AngelicStaff(), new SteelSword()};
 	
-	private static final int MAX_MOVE_LENGTH = 6;
+	public static final int MAX_MOVE_LENGTH = 6;
+	public static final int ATTACK_DISTANCE = 2;
 	public int attack = 12;
 	public int health = 70;
 	public String name;
+	public Point onPoint;
 	
-	public HellDog(String name) {
-		super(name);
+	public HellDog(String name, Point onPoint) {
+		super(name, onPoint);
 		this.name = name;
+		this.onPoint = onPoint;
 		System.out.println("HellDog " + name + "(" + attack + "," + health + ") has entered the arena!");
 		setHealth(health);
 		setAttack(attack);
@@ -53,6 +57,23 @@ public class HellDog extends Monster{
 
 	public static int getMaxMoveLength() {
 		return MAX_MOVE_LENGTH;
+	}
+
+	public static int getAttackDistance() {
+		return ATTACK_DISTANCE;
+	}
+
+	@Override
+	public Point getOnPoint() {
+
+		return onPoint;
+	
+	}
+
+	@Override
+	public void setOnPoint(Point onPoint) {
+		this.onPoint = onPoint;
+		
 	}
 	
 	

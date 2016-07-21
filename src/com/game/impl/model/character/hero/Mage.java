@@ -1,5 +1,7 @@
 package com.game.impl.model.character.hero;
 
+import java.awt.Point;
+
 import com.game.api.model.armor.Armor;
 import com.game.api.model.armor.ArmorType;
 import com.game.api.model.character.AttackType;
@@ -8,18 +10,22 @@ import com.game.api.model.character.MovementType;
 import com.game.api.model.weapon.Weapon;
 import com.game.api.model.weapon.WeaponType;
 
+
 public class Mage extends Hero {
 
-	private static final int MAX_MOVE_LENGTH = 3;
+	public static final int MAX_MOVE_LENGTH = 3;
+	public static final int ATTACK_DISTANCE = 5;
 	private static final int INIT_ATTACK = 10;
 	private static final int INIT_HEALTH = 200;
 	public int attack = INIT_ATTACK;
 	public int health = INIT_HEALTH;
 	public String name;
-
-	public Mage(String name) {
-		super(name);
+	public Point onPoint;
+	
+	public Mage(String name, Point onPoint) {
+		super(name, onPoint);
 		this.name = name;
+		this.onPoint = onPoint;
 		System.out.println("Mage " + name + "(" + attack + "," + health + ") has entered the arena!");
 		setHealth(health);
 		setAttack(attack);
@@ -63,6 +69,22 @@ public class Mage extends Hero {
 
 	public static int getMaxMoveLength() {
 		return MAX_MOVE_LENGTH;
+	}
+
+	public static int getAttackDistance() {
+		return ATTACK_DISTANCE;
+	}
+
+	@Override
+	public Point getOnPoint() {
+
+		return onPoint;
+	
+	}
+
+	@Override
+	public void setOnPoint(Point onPoint) {
+		this.onPoint = onPoint;
 	}
 
 }
