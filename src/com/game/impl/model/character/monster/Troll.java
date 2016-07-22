@@ -17,14 +17,13 @@ public class Troll extends Monster{
 	Dropable availableDrop[] = {new DemonicBow(), new DemonicStaff(), new DemonicSword()};
 	
 	public static final int MAX_MOVE_LENGTH = 2;
-	public static final int ATTACK_DISTANCE = 2;
 	public int attack = 15;
 	public int health = 100;
 	public String name;
 	public Point onPoint;
 	
 	public Troll(String name, Point onPoint) {
-		super(name, onPoint);
+
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Troll " + name + "(" + attack + "," + health + ") has entered the arena!");
@@ -60,9 +59,7 @@ public class Troll extends Monster{
 		return MAX_MOVE_LENGTH;
 	}
 
-	public static int getAttackDistance() {
-		return ATTACK_DISTANCE;
-	}
+
 
 	@Override
 	public Point getOnPoint() {

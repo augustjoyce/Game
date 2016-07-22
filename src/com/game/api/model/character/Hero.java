@@ -1,6 +1,6 @@
 package com.game.api.model.character;
 
-import java.awt.Point;
+
 
 import com.game.api.model.armor.Armor;
 import com.game.api.model.weapon.Weapon;
@@ -9,13 +9,10 @@ public abstract class Hero extends Character{
 	
 	
 	
-	protected Hero(String name, Point onPoint) {
-		super(name, onPoint);
-		
-	}
-	public void attack(Monster monster) {
+	
+	public void attack(Monster monster) throws NoSuchFieldException, SecurityException {
 		monster.setHealth(monster.getHealth() - getAttack());
-		if(monster.isDead(monster)) {
+		if(monster.isDead()) {
 			if(monster.drop() instanceof Weapon) equipWeapon((Weapon) monster.drop());
 			else if(monster.drop() instanceof Armor) equipArmor((Armor) monster.drop());
 			

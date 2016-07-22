@@ -6,19 +6,15 @@ public abstract class Character {
 
 	private int health;
 	private int attack;
-	protected Point onPoint;
+	
 	
 	public abstract String getName();
 
-	protected Character(String name, Point onPoint) {
 
-	}
 
-	public void attack(Character character) {
+	public void attack(Character character) throws NoSuchFieldException, SecurityException {
 		character.setHealth(character.getHealth() - getAttack());
-		if (character.isDead(character))
-			return;
-
+		
 	}
 
 
@@ -31,10 +27,10 @@ public abstract class Character {
 		return health;
 	}
 
-	public boolean isDead(Character ch) {
+	public boolean isDead() throws NoSuchFieldException, SecurityException {
 		if (health <= 0) {
 
-			System.out.println(ch.getName() + " is dead");
+			System.out.println(getClass().getSimpleName() + " " + getName() + " is dead");
 			
 			return true;
 		} else

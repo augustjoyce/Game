@@ -3,5 +3,57 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-1.2-api-2.6.2.jar" sourcepath="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-1.2-api-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-1.2-api-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-1.2-api-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-api-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-api-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-api-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-core-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-core-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-core-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-core-2.6.2-tests.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-flume-ng-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-flume-ng-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-flume-ng-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-iostreams-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-iostreams-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-iostreams-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jcl-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jcl-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jcl-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jmx-gui-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jmx-gui-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jmx-gui-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jul-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jul-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-jul-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-nosql-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-nosql-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-nosql-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-taglib-2.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-taglib-2.6.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/apache-log4j-2.6.2-bin/log4j-taglib-2.6.2-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/hamcrest-all-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javassist-3.20.0-GA.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.annotation.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.ejb.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.jms.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.persistence.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.resource.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.servlet.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.servlet.jsp.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.servlet.jsp.jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/javax.transaction.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/mockito-core-1.10.19.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/objenesis-2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/postgresql-9.4-1201.jdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-api-mockito-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-api-support-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-core-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-module-junit4-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-module-junit4-common-1.6.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Foxtrot/Desktop/Lib/powermock-reflect-1.6.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

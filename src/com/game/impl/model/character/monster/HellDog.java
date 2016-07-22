@@ -16,14 +16,12 @@ public class HellDog extends Monster{
 	Dropable availableDrop[] = {new LongBow(), new AngelicStaff(), new SteelSword()};
 	
 	public static final int MAX_MOVE_LENGTH = 6;
-	public static final int ATTACK_DISTANCE = 2;
 	public int attack = 12;
 	public int health = 70;
 	public String name;
 	public Point onPoint;
 	
 	public HellDog(String name, Point onPoint) {
-		super(name, onPoint);
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("HellDog " + name + "(" + attack + "," + health + ") has entered the arena!");
@@ -59,9 +57,6 @@ public class HellDog extends Monster{
 		return MAX_MOVE_LENGTH;
 	}
 
-	public static int getAttackDistance() {
-		return ATTACK_DISTANCE;
-	}
 
 	@Override
 	public Point getOnPoint() {

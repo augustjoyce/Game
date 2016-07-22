@@ -16,14 +16,12 @@ public class Gargoyle extends Monster{
 	Dropable[] availableDrop = {new IronSword(), new CompositeBow(), new CommonStaff()};
 	
 	public static final int MAX_MOVE_LENGTH = 5;
-	public static final int ATTACK_DISTANCE = 3;
 	public int attack = 5;
 	public int health = 20;
 	public String name;
 	public Point onPoint;
 	
 	public Gargoyle(String name, Point onPoint) {
-		super(name, onPoint);
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Gargoyle " + name + "(" + attack + "," + health + ") has entered the arena!");
@@ -57,10 +55,6 @@ public class Gargoyle extends Monster{
 
 	public static int getMaxMoveLength() {
 		return MAX_MOVE_LENGTH;
-	}
-
-	public static int getAttackDistance() {
-		return ATTACK_DISTANCE;
 	}
 
 	@Override

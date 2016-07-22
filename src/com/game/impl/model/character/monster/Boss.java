@@ -27,7 +27,6 @@ public class Boss extends Monster {
 	}
 	
 	public Boss(String name, Point onPoint) {
-		super(name, onPoint);
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Boss " + name + "(" + attack + "," + health + ") has entered the arena!");

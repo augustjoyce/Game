@@ -13,7 +13,7 @@ import com.game.api.model.weapon.WeaponType;
 public class Warrior extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 2;
-	public static final int ATTACK_DISTANCE = 2;
+	public static final int ATTACK_DISTANCE = 12;
 	private static final int INIT_ATTACK = 12;
 	public int attack = INIT_ATTACK;
 	private static final int INIT_HEALTH = 250;
@@ -22,7 +22,7 @@ public class Warrior extends Hero {
 	public Point onPoint;
 	
 	public Warrior(String name, Point onPoint) {
-		super(name, onPoint);
+
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Warrior " + name + "(" + attack + "," + health + ") has entered the arena!");

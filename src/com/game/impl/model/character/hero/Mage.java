@@ -14,7 +14,7 @@ import com.game.api.model.weapon.WeaponType;
 public class Mage extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 3;
-	public static final int ATTACK_DISTANCE = 5;
+	public static final int ATTACK_DISTANCE = 15;
 	private static final int INIT_ATTACK = 10;
 	private static final int INIT_HEALTH = 200;
 	public int attack = INIT_ATTACK;
@@ -23,7 +23,7 @@ public class Mage extends Hero {
 	public Point onPoint;
 	
 	public Mage(String name, Point onPoint) {
-		super(name, onPoint);
+
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Mage " + name + "(" + attack + "," + health + ") has entered the arena!");

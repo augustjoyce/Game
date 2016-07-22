@@ -16,14 +16,12 @@ public class Imp extends Monster{
 	Dropable availableDrop[] = {new ShortBow(), new WoodenStaff(), new WoodenSword()};
 	
 	public static final int MAX_MOVE_LENGTH = 3;
-	public static final int ATTACK_DISTANCE = 1;
 	public int attack = 2;
 	public int health = 20;
 	public String name;
 	public Point onPoint;
 	
 	public Imp(String name, Point onPoint) {
-		super(name, onPoint);
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Imp " + name + "(" + attack + "," + health + ") has entered the arena!");
@@ -62,10 +60,7 @@ public class Imp extends Monster{
 	}
 
 
-	public static int getAttackDistance() {
-		return ATTACK_DISTANCE;
-	}
-
+	
 
 	@Override
 	public Point getOnPoint() {

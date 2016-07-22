@@ -14,7 +14,7 @@ import com.game.api.model.weapon.WeaponType;
 public class Thief extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 5;
-	public static final int ATTACK_DISTANCE = 5;
+	public static final int ATTACK_DISTANCE = 15;
 	private static final int INIT_ATTACK = 15;
 	public int attack = INIT_ATTACK;
 	private static final int INIT_HEALTH = 150;
@@ -23,7 +23,7 @@ public class Thief extends Hero {
 	public Point onPoint;
 	
 	public Thief(String name, Point onPoint) {
-		super(name, onPoint);
+	
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("Thief " + name + "(" + attack + "," + health + ") has entered the arena!");
