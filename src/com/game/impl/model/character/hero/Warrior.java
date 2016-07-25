@@ -13,13 +13,14 @@ import com.game.api.model.weapon.WeaponType;
 public class Warrior extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 2;
-	public static final int ATTACK_DISTANCE = 12;
+	public static final int ATTACK_DISTANCE = 15;
 	private static final int INIT_ATTACK = 12;
 	public int attack = INIT_ATTACK;
 	private static final int INIT_HEALTH = 250;
 	public int health = INIT_HEALTH;
 	public String name;
 	public Point onPoint;
+	private Armor equippedArmor;
 	
 	public Warrior(String name, Point onPoint) {
 
@@ -59,7 +60,7 @@ public class Warrior extends Hero {
 
 	@Override
 	public void equipArmor(Armor armor) {
-		if (armor.getArmorType() == ArmorType.FULLPLATE && (getHealth() - INIT_HEALTH) < armor.getDefense()) {
+		if (armor.getArmorType() == ArmorType.FULLPLATE && ((getEquippedArmor() == null) || getEquippedArmor().getDefense() < armor.getDefense())) {
 			setHealth(getHealth() + armor.getDefense());
 			System.out.println(getName() + " equips " + armor.getClass().getSimpleName());
 		}
@@ -84,6 +85,14 @@ public class Warrior extends Hero {
 	public void setOnPoint(Point onPoint) {
 		this.onPoint = onPoint;
 		
+	}
+
+	public Armor getEquippedArmor() {
+		return equippedArmor;
+	}
+
+	public void setEquippedArmor(Armor equippedArmor) {
+		this.equippedArmor = equippedArmor;
 	}
 
 }

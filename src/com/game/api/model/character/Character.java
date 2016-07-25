@@ -30,7 +30,6 @@ public abstract class Character {
 	public boolean isDead() throws NoSuchFieldException, SecurityException {
 		if (health <= 0) {
 
-			System.out.println(getClass().getSimpleName() + " " + getName() + " is dead");
 			
 			return true;
 		} else

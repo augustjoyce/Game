@@ -14,13 +14,14 @@ import com.game.api.model.weapon.WeaponType;
 public class Mage extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 3;
-	public static final int ATTACK_DISTANCE = 15;
+	public static final int ATTACK_DISTANCE = 22;
 	private static final int INIT_ATTACK = 10;
 	private static final int INIT_HEALTH = 200;
 	public int attack = INIT_ATTACK;
 	public int health = INIT_HEALTH;
 	public String name;
 	public Point onPoint;
+	private Armor equippedArmor;
 	
 	public Mage(String name, Point onPoint) {
 
@@ -61,7 +62,7 @@ public class Mage extends Hero {
 
 	@Override
 	public void equipArmor(Armor armor) {
-		if (armor.getArmorType() == ArmorType.ROBE && (getHealth() - INIT_HEALTH) < armor.getDefense()) {
+		if (armor.getArmorType() == ArmorType.ROBE && ((getEquippedArmor() == null) || getEquippedArmor().getDefense() < armor.getDefense())) {
 			setHealth(getHealth() + armor.getDefense());
 			System.out.println(getName() + " equips " + armor.getClass().getSimpleName());
 		}
@@ -85,6 +86,14 @@ public class Mage extends Hero {
 	@Override
 	public void setOnPoint(Point onPoint) {
 		this.onPoint = onPoint;
+	}
+
+	public Armor getEquippedArmor() {
+		return equippedArmor;
+	}
+
+	public void setEquippedArmor(Armor equippedArmor) {
+		this.equippedArmor = equippedArmor;
 	}
 
 }

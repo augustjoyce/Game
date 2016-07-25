@@ -7,46 +7,51 @@ import com.game.api.model.Dropable;
 import com.game.api.model.character.AttackType;
 import com.game.api.model.character.Monster;
 import com.game.api.model.character.MovementType;
+import com.game.impl.model.armor.fullplate.SteelPlate;
+import com.game.impl.model.armor.light.LinenHood;
+import com.game.impl.model.armor.robe.AngelRobe;
 import com.game.impl.model.weapon.bow.LongBow;
 import com.game.impl.model.weapon.staff.AngelicStaff;
 import com.game.impl.model.weapon.sword.SteelSword;
 
-public class HellDog extends Monster{
-	
-	Dropable availableDrop[] = {new LongBow(), new AngelicStaff(), new SteelSword()};
-	
+public class HellDog extends Monster {
+
+	Dropable availableDrop[] = { new LongBow(), new AngelicStaff(), new SteelSword(), new AngelRobe(), new LinenHood(),
+			new SteelPlate() };
+
 	public static final int MAX_MOVE_LENGTH = 6;
 	public int attack = 12;
 	public int health = 70;
 	public String name;
 	public Point onPoint;
-	
+
 	public HellDog(String name, Point onPoint) {
 		this.name = name;
 		this.onPoint = onPoint;
 		System.out.println("HellDog " + name + "(" + attack + "," + health + ") has entered the arena!");
 		setHealth(health);
 		setAttack(attack);
-	
+
 	}
 
 	@Override
 	public String getName() {
-		
+
 		return name;
 	}
-	
+
 	@Override
 	public AttackType getAttackType() {
-		
+
 		return AttackType.MAGIC;
 	}
+
 	@Override
 	public MovementType getMovementType() {
-		
+
 		return MovementType.RUNNING;
 	}
-	
+
 	@Override
 	public Dropable drop() {
 		Random rand = new Random();
@@ -57,19 +62,17 @@ public class HellDog extends Monster{
 		return MAX_MOVE_LENGTH;
 	}
 
-
 	@Override
 	public Point getOnPoint() {
 
 		return onPoint;
-	
+
 	}
 
 	@Override
 	public void setOnPoint(Point onPoint) {
 		this.onPoint = onPoint;
-		
+
 	}
-	
-	
+
 }

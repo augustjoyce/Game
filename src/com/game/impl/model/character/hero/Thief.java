@@ -14,14 +14,23 @@ import com.game.api.model.weapon.WeaponType;
 public class Thief extends Hero {
 
 	public static final int MAX_MOVE_LENGTH = 5;
-	public static final int ATTACK_DISTANCE = 15;
+	public static final int ATTACK_DISTANCE = 20;
 	private static final int INIT_ATTACK = 15;
 	public int attack = INIT_ATTACK;
 	private static final int INIT_HEALTH = 150;
 	public int health = INIT_HEALTH;
 	public String name;
 	public Point onPoint;
+	private Armor equippedArmor;
 	
+	public Armor getEquippedArmor() {
+		return equippedArmor;
+	}
+
+	public void setEquippedArmor(Armor equippedArmor) {
+		this.equippedArmor = equippedArmor;
+	}
+
 	public Thief(String name, Point onPoint) {
 	
 		this.name = name;
@@ -61,7 +70,7 @@ public class Thief extends Hero {
 
 	@Override
 	public void equipArmor(Armor armor) {
-		if (armor.getArmorType() == ArmorType.LIGHT && (getHealth() - INIT_HEALTH) < armor.getDefense()) {
+		if (armor.getArmorType() == ArmorType.LIGHT &&  ((getEquippedArmor() == null) || getEquippedArmor().getDefense() < armor.getDefense())) {
 			setHealth(getHealth() + armor.getDefense());
 			System.out.println(getName() + " equips " + armor.getClass().getSimpleName());
 		}

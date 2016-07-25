@@ -1,14 +1,14 @@
-package com.game.impl.model.armor;
+package com.game.impl.model.armor.robe;
 
 import com.game.api.model.armor.Armor;
 import com.game.api.model.armor.ArmorType;
 
-public class CottonHood extends Armor {
-
+public class WizardRobe extends Armor {
+	public int defense = 10;
 	@Override
 	public ArmorType getArmorType() {
 		
-		return ArmorType.LIGHT;
+		return ArmorType.ROBE;
 	}
 
 }

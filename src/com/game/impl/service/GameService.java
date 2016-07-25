@@ -35,6 +35,8 @@ public class GameService implements com.game.api.service.GameService {
 
 	public ArrayList<Monster> monsters = new ArrayList<Monster>(30);
 	public ArrayList<Hero> heroes = new ArrayList<Hero>(10);
+	public ArrayList<Monster> deadMonsters = new ArrayList<Monster>(30);
+	public ArrayList<Hero> deadHeroes = new ArrayList<Hero>(10);
 
 	@Override
 	public void generateMonsters() {
@@ -91,14 +93,14 @@ public class GameService implements com.game.api.service.GameService {
 		generateHeroes();
 		generateMonsters();
 
-		while (!monsters.isEmpty() && !heroes.isEmpty()) {
+		while (!deadHeroes.containsAll(heroes) && !deadMonsters.containsAll(monsters)) {
 
 			move();
 			findRival();
-			
-			if (heroes.isEmpty()) {
+
+			if (deadHeroes.containsAll(heroes)) {
 				System.out.println("Monsters win!");
-			} else if (heroes.isEmpty()) {
+			} else if (deadMonsters.containsAll(monsters)) {
 				System.out.println("Heroes win!");
 				try {
 					Thread.sleep(10000);
@@ -115,21 +117,23 @@ public class GameService implements com.game.api.service.GameService {
 	@Override
 	public void findRival()
 			throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		
+
 		for (int i = 0; i < heroes.size(); i++) {
 			for (int j = 0; j < monsters.size(); j++) {
-					if (Math.abs (heroes.get(i).getOnPoint().x - monsters.get(j).getOnPoint().x) <= heroes.get(i).getClass()
-							.getDeclaredField("ATTACK_DISTANCE").getInt(getClass())
-							&& Math.abs(heroes.get(i).getOnPoint().y - monsters.get(j).getOnPoint().y) <= heroes.get(i).getClass()
-									.getDeclaredField("ATTACK_DISTANCE").getInt(getClass())) {
+				if (!heroes.get(i).isDead() && !monsters.get(j).isDead()) {
+					if (Math.abs(heroes.get(i).getOnPoint().x - monsters.get(j).getOnPoint().x) <= heroes.get(i)
+							.getClass().getDeclaredField("ATTACK_DISTANCE").getInt(getClass())
+							&& Math.abs(heroes.get(i).getOnPoint().y - monsters.get(j).getOnPoint().y) <= heroes.get(i)
+									.getClass().getDeclaredField("ATTACK_DISTANCE").getInt(getClass())) {
 
-						System.out.println(heroes.get(i).getClass().getSimpleName() +" " + heroes.get(i).getName()
-								+ " and " + monsters.get(j).getClass().getSimpleName() + " " + monsters.get(i).getName()
+						System.out.println(heroes.get(i).getClass().getSimpleName() + " " + heroes.get(i).getName()
+								+ " and " + monsters.get(j).getClass().getSimpleName() + " " + monsters.get(j).getName()
 								+ " are fighting now!");
 
 						fight(heroes.get(i), monsters.get(j));
-						move();
-				}else move();
+					}
+				} else
+					continue;
 
 			}
 		}
@@ -139,59 +143,67 @@ public class GameService implements com.game.api.service.GameService {
 	public void move()
 			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		for (int i = 0; i < monsters.size(); i++) {
-			switch (rand.nextInt(2)) {
-			case 0:
-				monsters.get(i)
-						.setOnPoint(new Point(
-								monsters.get(i).getOnPoint().x + monsters.get(i).getClass()
-										.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
-						monsters.get(i).getOnPoint().y));
-				break;
-			case 1:
-				monsters.get(i)
-						.setOnPoint(new Point(
-								monsters.get(i).getOnPoint().x - monsters.get(i).getClass()
-										.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
-						monsters.get(i).getOnPoint().y));
-				break;
+			if (!monsters.get(i).isDead()) {
+				if (monsters.get(i).getOnPoint().x > 100 || monsters.get(i).getOnPoint().x < 0) {
+					monsters.get(i).setOnPoint(new Point(rand.nextInt(100), 0));
+				}
+				switch (rand.nextInt(2)) {
+				case 0:
+					monsters.get(i)
+							.setOnPoint(new Point(
+									monsters.get(i).getOnPoint().x + monsters.get(i).getClass()
+											.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
+							monsters.get(i).getOnPoint().y));
+					break;
+				case 1:
+					monsters.get(i)
+							.setOnPoint(new Point(
+									monsters.get(i).getOnPoint().x - monsters.get(i).getClass()
+											.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
+							monsters.get(i).getOnPoint().y));
+					break;
+				}
 			}
-
 			logger.trace(monsters.get(i).getClass().getSimpleName() + " " + monsters.get(i).getName() + " now at point "
 					+ monsters.get(i).getOnPoint());
 		}
 
 		for (int i = 0; i < heroes.size(); i++) {
-			switch (rand.nextInt(2)) {
-			case 0:
-				heroes.get(i)
-						.setOnPoint(new Point(
-								heroes.get(i).getOnPoint().x + heroes.get(i).getClass()
-										.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
-						heroes.get(i).getOnPoint().y));
-				break;
-			case 1:
-				heroes.get(i)
-						.setOnPoint(new Point(
-								heroes.get(i).getOnPoint().x - heroes.get(i).getClass()
-										.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
-						heroes.get(i).getOnPoint().y));
-				break;
+			if (!heroes.get(i).isDead()) {
+				if (heroes.get(i).getOnPoint().x > 100 || heroes.get(i).getOnPoint().x < 0) {
+					heroes.get(i).setOnPoint(new Point(rand.nextInt(100), 0));
+				}
+				switch (rand.nextInt(2)) {
+				case 0:
+					heroes.get(i)
+							.setOnPoint(new Point(
+									heroes.get(i).getOnPoint().x + heroes.get(i).getClass()
+											.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
+							heroes.get(i).getOnPoint().y));
+					break;
+				case 1:
+					heroes.get(i)
+							.setOnPoint(new Point(
+									heroes.get(i).getOnPoint().x - heroes.get(i).getClass()
+											.getDeclaredField("MAX_MOVE_LENGTH").getInt(getClass()),
+							heroes.get(i).getOnPoint().y));
+					break;
+				}
 			}
-
 			logger.trace(heroes.get(i).getClass().getSimpleName() + " " + heroes.get(i).getName() + " now at point "
 					+ heroes.get(i).getOnPoint());
 		}
 	}
 
 	@Override
-	public void bossAppearance() throws NoSuchFieldException, SecurityException {
+	public void bossAppearance()
+			throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		Boss boss = new Boss(nameList[rand.nextInt(200)], new Point(rand.nextInt(100), 0));
-		while (!heroes.isEmpty() && !boss.isDead()) {
+		while (!deadHeroes.containsAll(heroes) && !boss.isDead()) {
 			for (int i = 0; i < heroes.size(); i++) {
-				heroes.get(i).attack(boss);
-				boss.attack(heroes.get(i));
+				fight(heroes.get(i), boss);
 			}
-			if (heroes.isEmpty()) {
+			if (deadHeroes.containsAll(heroes)) {
 				System.out.println("All the heroes are dead...");
 			} else if (boss.isDead()) {
 				System.out.println("The heroes killed the horror!");
@@ -200,23 +212,26 @@ public class GameService implements com.game.api.service.GameService {
 		}
 	}
 
-
-
 	@Override
 	public void fight(Hero hero, Monster monster)
 			throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
-		while (true) {
-			if(!hero.isDead()) {
-				hero.attack(monster);
-				
-			} else {heroes.remove(hero); return;}
+		while (!hero.isDead() && !monster.isDead()) {
 
-				if(!monster.isDead()) {
+			hero.attack(monster);
 			monster.attack(hero);
-		}  	else {monsters.remove(monster); return;}
-	}
 
+			if (hero.isDead()) {
+				deadHeroes.add(hero);
+				System.out.println(hero.getClass().getSimpleName() + " " + hero.getName() + " is dead");
+				return;
+			}
 
-		
+			else if (monster.isDead()) {
+				deadMonsters.add(monster);
+				System.out.println(monster.getClass().getSimpleName() + " " + monster.getName() + " is dead");
+				return;
+			}
+		}
+
 	}
 }
